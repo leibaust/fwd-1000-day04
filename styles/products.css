@@ -41,10 +41,25 @@ h6 {
 	font-size: 1.75rem;
 }
 
+h2 {
+	font-size: 1.5rem;
+}
+
 p {
 	margin: 0 0 1.5em;
 }
 
+header {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: #282828;
+}
+
+.site-name {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #282828;
+	text-decoration: none;
+}
 
 /* Elements
 --------------------------------------------- */
@@ -53,23 +68,44 @@ aside {
 	padding: 0 1rem;
 }
 
+a.product-link {
+	display: block;
+	padding: 1rem;
+	margin: auto;
+	background-color: #007430;
+	border: 1px solid #e5e5e5;
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	width: fit-content;
+}
+
+article.product {
+	border: #d1d1d1 1px solid;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin: 1rem;
+}
 
 /* Links
 --------------------------------------------- */
 a,
 a:visited { 
-	color: #008000;
-	text-decoration: none;
+	color: #1c1c1c;
 }
 
 a:hover,
-a:focus,
-a:active {
-	text-decoration: underline;
+a:focus {
+	color: #1c1c1c;
 }
 
 a:focus {
-	outline: 1px dotted;
+	outline: 1px dotted #1c1c1c;
+}
+
+a:active {
+	color: #ffffff;
+	background-color: #1c1c1c;
 }
 
 /*--------------------------------------------------------------
@@ -81,16 +117,97 @@ a:focus {
 	margin: 0 auto;
 }
 
-@media (min-width: 50rem) {
-	.site-header {
-		display: flex;
-	}
-}
 
 /* Header
 --------------------------------------------- */
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
 
+.site-name {
+	max-width: 6rem;
+	margin-left: 1rem;
+}
 
+.site-logo img {
+	display: block;
+}
+
+.site-navigation {
+	padding: 0 1rem;
+}
+
+.site-navigation ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.site-navigation a {
+	display: block;
+	padding: 1rem;
+	font-size: 1.25rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/* START -- STYLES FOR MOBILE MENU */
+.site-navigation ul {
+	display: none;
+	position: absolute;
+	top: 8rem;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.menu-toggle {
+	display: block;
+	background-color: transparent;
+	border: 0;
+	padding: 1rem;
+}
+
+.menu-toggle:focus {
+	border: 0;
+	outline: 1px dotted;
+}
+
+.site-navigation.toggled ul {
+	display: block;
+}
+/* END -- STYLES FOR MOBILE MENU */
+
+@media (min-width: 50em) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.site-navigation {
+		padding: 0 1rem;
+		flex: 1 1 auto;
+	}
+
+	.site-navigation ul,
+	.site-navigation.toggled ul {
+		display: flex;
+		/* START - Remove Mobile Menu Styles */
+		position: relative;
+		justify-content: flex-end;
+		top: 0;
+		/* END - Remove Mobile Menu Styles  */
+	}
+
+	.site-navigation a {
+		line-height: 8rem; /* Matches the height of the .site-logo: 6rem + 1rem + 1rem */
+		padding: 0 1rem;
+	}
+
+}
 
 /* Main
 --------------------------------------------- */
@@ -128,11 +245,89 @@ a:focus {
 }
 
 /* Section: About */
+section.section-about {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
+@media (min-width: 50em) {
+
+	section.section-about {
+		width:60%;
+		max-width: 75rem;
+		margin: 0 auto;
+	}
+	
+}
 
 /* Section: Products */
 
+section.section-products {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+div.product-text {
+	display: flex;
+	flex-direction: column;
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+}
+
+.products-sidebar ul {
+	a,
+	a:visited { 
+	color: #009525;
+}
+}
+
+@media (min-width: 50em) {
+
+	section.section-products {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	div.products-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+	}	
+
+	aside.products-sidebar {
+		width: 35%;
+		order: -1;
+	}
+	
+}
 
 
 /* Footer
 --------------------------------------------- */
+
+footer {
+	background-color: #cfcfcf;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+nav ul {
+	list-style: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+
+@media (min-width: 50em) {
+
+	footer {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+}
