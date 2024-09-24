@@ -81,6 +81,12 @@ a:focus {
 	margin: 0 auto;
 }
 
+@media (min-width: 50rem) {
+	.site-header {
+		display: flex;
+	}
+}
+
 /* Header
 --------------------------------------------- */
 

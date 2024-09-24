@@ -128,7 +128,25 @@ a:active {
 }
 
 /* add flex styles here */
+@media (min-width: 50em) {
+	.site-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
 
+	.site-header, .site-footer {
+		width: 100%;
+	}
+
+	.site-main {
+		width: 75%;
+	}
+
+	.site-sidebar {
+		width: 25%;
+	}
+}
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -138,6 +156,9 @@ a:active {
 .site-header {
 	background-color: #ffe6bf;
 	/* add flex styles here */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .site-logo {
@@ -197,7 +218,6 @@ a:active {
 }
 /* END -- STYLES FOR MOBILE MENU */
 
-
 @media (min-width: 43.75em) {
 
 	.menu-toggle {
@@ -207,14 +227,16 @@ a:active {
 	.site-navigation {
 		padding: 0 1rem;
 		/* add flex styles here */
+		flex: 1 1 auto;
 	}
 
 	.site-navigation ul,
 	.site-navigation.toggled ul {
 		/* add flex styles here */
-
+		display: flex;
 		/* START - Remove Mobile Menu Styles */
 		position: relative;
+		justify-content: flex-end;
 		top: 0;
 		/* END - Remove Mobile Menu Styles  */
 	}
